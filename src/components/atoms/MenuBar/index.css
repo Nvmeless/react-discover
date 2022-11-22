@@ -1,0 +1,19 @@
+nav {
+    display: flex;
+    height: 7vh;
+    width: 100vw;
+    z-index: 100;
+    position: fixed;
+    bottom:0;
+}
+
+
+h1#header {
+    font-size: 3em;
+}
+
+p#generic {
+    font-size: 1.5em;
+}
+
+
