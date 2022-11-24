@@ -8,8 +8,11 @@ export default class Home extends React.Component {
     constructor(props){
         super(props)
         let date = new Date( )
-        this.state = {date: date}
+        this.state = {date: date, content:"hour"}
+        
         this.changeDate = this.changeDate.bind(this)
+
+        // this.changeContent = this.changeContent.bind(this);
     }
 
     changeDate(){
@@ -17,17 +20,45 @@ export default class Home extends React.Component {
 
         this.setState({date: date});
     }
+    changeContent(content){
+        this.setState({content: content});
+    }
 
+    renderContent(state){
+        switch (state) {
+            case "hour":
+                return <Text>{this.state.date.toLocaleTimeString()}</Text>
+                
+                break;
+            case "hello":
+                return <Text>Hello few</Text>
+                
+                break;
+        
+            default:
+                return <Text>{state}</Text>
+
+
+                break;
+        }
+    }
+
+
+
+    renderContentTwice(state){
+      return <Text>Home</Text>
+      
+    }
     render(){
         console.log("Rendering")
         return(
             <>
-                <Text>{this.state.date.toLocaleTimeString()}</Text>
-                <Menu action={this.changeDate} menus={[
-                    {title:"Juli", uri:"Lezgo", icon :(<CiApple size='1.5em'/>)},
-                    {title:"Juli", uri:"Lezgo", icon :(<CiAvocado size='1.5em'/>)},
-                    {title:"Juli", uri:"Lezgo", icon :(<CiBacon size='1.5em'/>)},
-                    {title:"Juli", uri:"Lezgo", icon :(<CiBowlNoodles size='1.5em'/>)}
+            {this.renderContentTwice(this.state.content)}
+                <Menu action={this.changeDate} changeContent={this.changeContent} menus={[
+                    {title:"Juli", uri:"Lezgo", icon :(<CiApple size='1.5em'/>),content:"hello"},
+                    {title:"Juli", uri:"Lezgo", icon :(<CiAvocado size='1.5em'/>),content:"Fresh Avocado"},
+                    {title:"Juli", uri:"Lezgo", icon :(<CiBacon size='1.5em'/>),content:"Bacon"},
+                    {title:"Juli", uri:"Lezgo", icon :(<CiBowlNoodles size='1.5em'/>),content:"Noodles"}
                 ]}></Menu>
             </>
             )
