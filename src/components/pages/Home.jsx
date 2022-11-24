@@ -12,7 +12,7 @@ export default class Home extends React.Component {
         
         this.changeDate = this.changeDate.bind(this)
 
-        // this.changeContent = this.changeContent.bind(this);
+        this.changeContent = this.changeContent.bind(this);
     }
 
     changeDate(){
@@ -43,17 +43,11 @@ export default class Home extends React.Component {
         }
     }
 
-
-
-    renderContentTwice(state){
-      return <Text>Home</Text>
-      
-    }
     render(){
         console.log("Rendering")
         return(
             <>
-            {this.renderContentTwice(this.state.content)}
+            {this.renderContent(this.state.content)}
                 <Menu action={this.changeDate} changeContent={this.changeContent} menus={[
                     {title:"Juli", uri:"Lezgo", icon :(<CiApple size='1.5em'/>),content:"hello"},
                     {title:"Juli", uri:"Lezgo", icon :(<CiAvocado size='1.5em'/>),content:"Fresh Avocado"},
