@@ -3,6 +3,7 @@ import {Text} from '../atoms/Text/Text';
 import { Menu } from "../molecules/Menu";
 import "./index.css"; 
 import { CiApple, CiAvocado,CiBacon, CiBowlNoodles } from "react-icons/ci";
+import { Todo } from "../molecules/Todo";
 export default class Home extends React.Component {
 
     constructor(props){
@@ -47,6 +48,7 @@ export default class Home extends React.Component {
         console.log("Rendering")
         return(
             <>
+            <Todo></Todo>
             {this.renderContent(this.state.content)}
                 <Menu action={this.changeDate} changeContent={this.changeContent} menus={[
                     {title:"Juli", uri:"Lezgo", icon :(<CiApple size='1.5em'/>),content:"hello"},
