@@ -9,7 +9,7 @@ const todoSlice = createSlice(
     {
         name:"todo",
         initialState:initialState,
-        reducer: {
+        reducers: {
             addTask: (state, action) => {
                 //action = {type: "ADD_NEW_TASK", payload: "New task"}
                 const newTask ={
@@ -20,11 +20,14 @@ const todoSlice = createSlice(
                 state.push(newTask);
             },
             toggleTask: (state, action) => {
+                console.log('TOOGGGGGLEE')
                 //action = {type: "TOGGLE_EXISTING_TASK", payload: 4}
                 const task = state.find((t) => t.id === action.payload)
                 task.isDone = !task.isDone 
             },
             deleteTask: (state, action) => {
+                //action = {type: "DELETE_EXISTING_TASK", payload: 6}
+
                 state = state.filter((t) => t.id !== action.payload )
                 return state;
             } 
@@ -38,4 +41,8 @@ export const store = configureStore({
     }
 })
 
-
+export const {
+    toggleTask,
+    addTask,
+    deleteTask,
+} = todoSlice.actions
