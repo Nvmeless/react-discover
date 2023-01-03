@@ -13,6 +13,19 @@ export default class MenuBar extends React.Component {
 
     }
     
+
+    // componentDidMount() {
+    //     this.interval = setInterval(() => console.log(this.props), 1000);
+    // }
+    // componentWillUnmount(){
+    //     clearInterval(this.interval)
+    // }
+    // componentDidUpdate() {
+    //     // thsipfgojdpojb
+    // }
+
+
+    
     render() {
         return (
             <StyledNav>{this.props.children}</StyledNav>

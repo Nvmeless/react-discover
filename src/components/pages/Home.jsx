@@ -4,6 +4,7 @@ import { Menu } from "../molecules/Menu";
 import "./index.css"; 
 import { CiApple, CiAvocado,CiBacon, CiBowlNoodles } from "react-icons/ci";
 import { Todo } from "../molecules/Todo";
+import { ReduxPlaylist } from "../molecules/ReduxPlaylist";
 export default class Home extends React.Component {
 
     constructor(props){
@@ -48,14 +49,9 @@ export default class Home extends React.Component {
         console.log("Rendering")
         return(
             <>
-            <Todo></Todo>
-            {this.renderContent(this.state.content)}
-                <Menu action={this.changeDate} changeContent={this.changeContent} menus={[
-                    {title:"Juli", uri:"Lezgo", icon :(<CiApple size='1.5em'/>),content:"hello"},
-                    {title:"Juli", uri:"Lezgo", icon :(<CiAvocado size='1.5em'/>),content:"Fresh Avocado"},
-                    {title:"Juli", uri:"Lezgo", icon :(<CiBacon size='1.5em'/>),content:"Bacon"},
-                    {title:"Juli", uri:"Lezgo", icon :(<CiBowlNoodles size='1.5em'/>),content:"Noodles"}
-                ]}></Menu>
+            {/* <Todo></Todo> */}
+            <ReduxPlaylist></ReduxPlaylist>
+
             </>
             )
     }
